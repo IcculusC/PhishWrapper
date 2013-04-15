@@ -18,6 +18,7 @@
 		56A5DF0516D6CEAC006AF760 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A5DF0416D6CEAC006AF760 /* Default-568h@2x.png */; };
 		56A5DF0816D6CEAC006AF760 /* PhishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A5DF0716D6CEAC006AF760 /* PhishViewController.m */; };
 		56A5DF0B16D6CEAC006AF760 /* PhishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A5DF0916D6CEAC006AF760 /* PhishViewController.xib */; };
+		56A5DF1316D6CED7006AF760 /* PhishAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A5DF1216D6CED7006AF760 /* PhishAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,9 @@
 		56A5DF0616D6CEAC006AF760 /* PhishViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhishViewController.h; sourceTree = "<group>"; };
 		56A5DF0716D6CEAC006AF760 /* PhishViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhishViewController.m; sourceTree = "<group>"; };
 		56A5DF0A16D6CEAC006AF760 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PhishViewController.xib; sourceTree = "<group>"; };
+		56A5DF1116D6CED7006AF760 /* PhishAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhishAPI.h; sourceTree = "<group>"; };
+		56A5DF1216D6CED7006AF760 /* PhishAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhishAPI.m; sourceTree = "<group>"; };
+		56C7D72716E33AB8004D86F9 /* PhishAPIDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhishAPIDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,9 @@
 				56A5DF0716D6CEAC006AF760 /* PhishViewController.m */,
 				56A5DF0916D6CEAC006AF760 /* PhishViewController.xib */,
 				56A5DEF516D6CEAB006AF760 /* Supporting Files */,
+				56A5DF1116D6CED7006AF760 /* PhishAPI.h */,
+				56A5DF1216D6CED7006AF760 /* PhishAPI.m */,
+				56C7D72716E33AB8004D86F9 /* PhishAPIDelegate.h */,
 			);
 			path = PhishWrapper;
 			sourceTree = "<group>";
@@ -177,6 +184,7 @@
 				56A5DEFB16D6CEAB006AF760 /* main.m in Sources */,
 				56A5DEFF16D6CEAB006AF760 /* PhishAppDelegate.m in Sources */,
 				56A5DF0816D6CEAC006AF760 /* PhishViewController.m in Sources */,
+				56A5DF1316D6CED7006AF760 /* PhishAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +307,7 @@
 				56A5DF1016D6CEAC006AF760 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
