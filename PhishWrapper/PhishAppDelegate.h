@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PhishAPIDelegate.h"
 
 @class PhishViewController;
 

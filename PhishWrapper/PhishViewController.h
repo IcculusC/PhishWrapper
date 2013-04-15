@@ -1,4 +1,4 @@
-	//
+//
 //  PhishViewController.h
 //  PhishWrapper
 //
@@ -7,19 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PhishAPIDelegate.h"
-#import "PhishAPI.h"
 
-@interface PhishViewController : UIViewController <PhishAPIDelegate, UITableViewDataSource>
-{
-    IBOutlet UIButton * clickButton;
-    IBOutlet UITableView * tableView;
-    PhishAPI * api;
-    NSMutableArray * listText;
-}
-
-- (IBAction)buttonClicked:(id)sender;
-
-@property (nonatomic) NSString * jsonstring;
+@interface PhishViewController : UIViewController
 
 @end
