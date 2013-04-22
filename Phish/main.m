@@ -1,8 +1,8 @@
-	//
-//  main.m
-//  PhishWrapper
 //
-//  Created by llll on 2/21/13.
+//  main.m
+//  Phish
+//
+//  Created by llll on 4/20/13.
 //  Copyright (c) 2013 llll. All rights reserved.
 //
 
@@ -16,4 +16,3 @@ int main(int argc, char *argv[])
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([PhishAppDelegate class]));
     }
 }
-	

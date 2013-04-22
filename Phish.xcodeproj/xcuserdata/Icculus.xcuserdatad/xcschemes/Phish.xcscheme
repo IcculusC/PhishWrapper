@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "56A5DEEA16D6CEAB006AF760"
-               BuildableName = "PhishWrapper.app"
-               BlueprintName = "PhishWrapper"
-               ReferencedContainer = "container:PhishWrapper.xcodeproj">
+               BlueprintIdentifier = "56A8C40F17235DEE0054E735"
+               BuildableName = "Phish.app"
+               BlueprintName = "Phish"
+               ReferencedContainer = "container:Phish.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "56A5DEEA16D6CEAB006AF760"
-            BuildableName = "PhishWrapper.app"
-            BlueprintName = "PhishWrapper"
-            ReferencedContainer = "container:PhishWrapper.xcodeproj">
+            BlueprintIdentifier = "56A8C40F17235DEE0054E735"
+            BuildableName = "Phish.app"
+            BlueprintName = "Phish"
+            ReferencedContainer = "container:Phish.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,10 +51,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "56A5DEEA16D6CEAB006AF760"
-            BuildableName = "PhishWrapper.app"
-            BlueprintName = "PhishWrapper"
-            ReferencedContainer = "container:PhishWrapper.xcodeproj">
+            BlueprintIdentifier = "56A8C40F17235DEE0054E735"
+            BuildableName = "Phish.app"
+            BlueprintName = "Phish"
+            ReferencedContainer = "container:Phish.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "56A5DEEA16D6CEAB006AF760"
-            BuildableName = "PhishWrapper.app"
-            BlueprintName = "PhishWrapper"
-            ReferencedContainer = "container:PhishWrapper.xcodeproj">
+            BlueprintIdentifier = "56A8C40F17235DEE0054E735"
+            BuildableName = "Phish.app"
+            BlueprintName = "Phish"
+            ReferencedContainer = "container:Phish.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

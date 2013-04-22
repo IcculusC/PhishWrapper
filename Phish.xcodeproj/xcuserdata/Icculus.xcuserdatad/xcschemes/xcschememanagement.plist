@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>PhishWrapper.xcscheme</key>
+		<key>Phish.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>56A5DEEA16D6CEAB006AF760</key>
+		<key>56A8C40F17235DEE0054E735</key>
 		<dict>
 			<key>primary</key>
 			<true/>
