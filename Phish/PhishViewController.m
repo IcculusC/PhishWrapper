@@ -31,8 +31,6 @@
     NSLog(@"SUCCESS");
     NSError *e = nil;
     NSArray * json = [NSJSONSerialization JSONObjectWithData:dat options: NSJSONReadingMutableContainers error:&e];
-    
-    [self.tableView reloadData];
 }
 
 - (void)connFailed:(NSError *)err;
@@ -54,8 +52,6 @@
 {
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsItem"];
    
-    //cell.textLabel.text = [newsList objectAtIndex:indexPath.row];
-    
     cell.textLabel.text = @"TEST";
     
     return cell;
@@ -67,8 +63,8 @@
     
     PhishNewsViewController * target = [segue destinationViewController];
     
-    target.title = @"JEEHEHEHEHHEE";
-    
+    target.content = @"TEST";
+        
     NSLog(@"SEGUE!");
 }
 

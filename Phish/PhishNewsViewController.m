@@ -9,13 +9,13 @@
 #import "PhishNewsViewController.h"
 
 @interface PhishNewsViewController ()
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (weak, nonatomic) IBOutlet NSString * title;
-@property (weak, nonatomic) IBOutlet NSString * content;
+@property (weak, nonatomic) IBOutlet UIWebView * webView;
 
 @end
 
 @implementation PhishNewsViewController
+
+@synthesize content;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,8 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"News";
 
-    [_webView loadHTMLString:self.title baseURL:Nil];
+    [_webView loadHTMLString:self.content baseURL:Nil];
 }
 
 - (void)didReceiveMemoryWarning

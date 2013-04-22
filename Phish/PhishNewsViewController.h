@@ -10,4 +10,6 @@
 
 @interface PhishNewsViewController : UIViewController
 
+@property (weak, nonatomic) NSString * content;
+
 @end
