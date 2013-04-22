@@ -40,8 +40,8 @@
     {
         NSMutableDictionary * dict = [json objectAtIndex:i];
         
-        for(NSString * str in [dict allKeys])
-            NSLog(str);
+        //for(NSString * str in [dict allKeys])
+            //NSLog(str);
         
         if([dict objectForKey:@"title"])
             [newsList addObject:[dict objectForKey:@"title"]];
@@ -89,14 +89,8 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if(sender == _searchButton)
+    if(sender != _searchButton)
     {
-        
-        NSLog(@"SEARCHBUTTON");
-    }
-    else
-    {
-        
         NSIndexPath * indexPath = [self.tableView indexPathForCell:sender];
     
         PhishNewsViewController * target = [segue destinationViewController];
@@ -107,10 +101,8 @@
         NSString * con = [targetDict objectForKey:@"txt"];
         NSString * dat = [targetDict objectForKey:@"pubdate"];
     
-        target.content = [[NSString alloc] initWithFormat:@"%@ %@ %@", tit, con, dat];
+        target.content = [[NSString alloc] initWithFormat:@"<h2> %@ </h2> %@ %@", tit, dat, con];
     }
-    
-    NSLog(@"SEGUE!");
 }
 
 - (void)didReceiveMemoryWarning

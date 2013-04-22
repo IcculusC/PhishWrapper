@@ -10,6 +10,4 @@
 
 @interface PhishSearchViewController : UIViewController
 
--(IBAction)confirmButton:(id)sender;
-
 @end

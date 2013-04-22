@@ -13,7 +13,6 @@
 @property (strong, nonatomic) IBOutlet UITableView * tableView;
 @property (strong, nonatomic) IBOutlet UIDatePicker * datePicker;
 
-
 @end
 
 @implementation PhishSearchViewController
@@ -37,11 +36,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)confirmButton:(id)sender
-{
-    NSLog(@"CONFIRM BUTTON CLICKED");
 }
 
 @end
