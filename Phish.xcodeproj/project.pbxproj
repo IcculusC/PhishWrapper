@@ -21,6 +21,7 @@
 		56A8C42D17235DEE0054E735 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A8C42B17235DEE0054E735 /* MainStoryboard.storyboard */; };
 		56A8C43017235DEE0054E735 /* PhishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A8C42F17235DEE0054E735 /* PhishViewController.m */; };
 		56A8C43917235E070054E735 /* PhishAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A8C43717235E070054E735 /* PhishAPI.m */; };
+		56F8951017251A4500AA4D8B /* PhishShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F8950F17251A4500AA4D8B /* PhishShowViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		56A8C43617235E070054E735 /* PhishAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhishAPI.h; sourceTree = "<group>"; };
 		56A8C43717235E070054E735 /* PhishAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhishAPI.m; sourceTree = "<group>"; };
 		56A8C43817235E070054E735 /* PhishAPIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhishAPIDelegate.h; sourceTree = "<group>"; };
+		56F8950E17251A4500AA4D8B /* PhishShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhishShowViewController.h; sourceTree = "<group>"; };
+		56F8950F17251A4500AA4D8B /* PhishShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhishShowViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				56343A19172499F70047604C /* PhishNewsViewController.m */,
 				5670BE201724F59E00A72EDA /* PhishSearchViewController.h */,
 				5670BE211724F59E00A72EDA /* PhishSearchViewController.m */,
+				56F8950E17251A4500AA4D8B /* PhishShowViewController.h */,
+				56F8950F17251A4500AA4D8B /* PhishShowViewController.m */,
 			);
 			path = Phish;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				56A8C43917235E070054E735 /* PhishAPI.m in Sources */,
 				56343A1A172499F70047604C /* PhishNewsViewController.m in Sources */,
 				5670BE221724F59E00A72EDA /* PhishSearchViewController.m in Sources */,
+				56F8951017251A4500AA4D8B /* PhishShowViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

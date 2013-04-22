@@ -99,7 +99,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if(sender != _searchButton)
+    if([segue.identifier isEqualToString:@"newsToWebView"])
     {
         NSIndexPath * indexPath = [self.tableView indexPathForCell:sender];
     

@@ -7,6 +7,7 @@
 //
 
 #import "PhishSearchViewController.h"
+#import "PhishShowViewController.h"
 
 @interface PhishSearchViewController ()
 @property (strong, nonatomic) IBOutlet UIBarButtonItem * confirmButton;
@@ -65,12 +66,25 @@
 {
     NSLog(@"SEARCH SUCCESSFUL");
     NSLog([[NSString alloc] initWithData:dat encoding:NSNEXTSTEPStringEncoding]);
+
+    [self performSegueWithIdentifier:@"searchToShow" sender:self];
 }
 
 - (void)connFailed:(NSError *)err
 {
     NSLog(@"SEARCH FAILED");
     NSLog([err description]);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"searchToShow"])
+    {
+        PhishShowViewController * target = [segue destinationViewController];
+        
+        target.title = @"HEHETITLE";
+        target.content = @"TEST";
+    }
 }
 
 @end

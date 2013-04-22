@@ -32,7 +32,7 @@
                                     <accessibilityTraits key="traits" none="YES" button="YES"/>
                                 </accessibility>
                                 <connections>
-                                    <segue destination="PBs-mn-O7C" kind="push" id="eaX-iv-TZk"/>
+                                    <segue destination="PBs-mn-O7C" kind="push" identifier="newsToWebView" id="eaX-iv-TZk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -44,7 +44,7 @@
                     <navigationItem key="navigationItem" title="News" id="xnd-Yr-NNA">
                         <barButtonItem key="rightBarButtonItem" title="Search" id="76H-du-E40">
                             <connections>
-                                <segue destination="Bg2-7q-ETD" kind="push" id="M6B-4L-gum"/>
+                                <segue destination="Bg2-7q-ETD" kind="push" identifier="newsToSearch" id="M6B-4L-gum"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -164,40 +164,43 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="WM3-09-dlN" id="8Hd-y4-wxh"/>
+                        <segue destination="mZd-9V-vp7" kind="push" identifier="searchToShow" id="z0g-rc-weJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAx-ox-HHA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1207" y="-151"/>
         </scene>
+        <!--Phish Show View Controller-->
+        <scene sceneID="gma-c4-kUW">
+            <objects>
+                <viewController id="mZd-9V-vp7" customClass="PhishShowViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JaN-6U-0xY">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKu-go-h11">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bKu-go-h11" firstAttribute="trailing" secondItem="JaN-6U-0xY" secondAttribute="trailing" type="default" id="Gdh-Ln-ro1"/>
+                            <constraint firstItem="bKu-go-h11" firstAttribute="bottom" secondItem="JaN-6U-0xY" secondAttribute="bottom" type="default" id="nLz-rk-bK2"/>
+                            <constraint firstItem="bKu-go-h11" firstAttribute="leading" secondItem="JaN-6U-0xY" secondAttribute="leading" type="default" id="p3Q-Sd-ukp"/>
+                            <constraint firstItem="bKu-go-h11" firstAttribute="top" secondItem="JaN-6U-0xY" secondAttribute="top" type="default" id="pqk-cE-alO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Msm-Dz-rRw"/>
+                    <connections>
+                        <outlet property="webView" destination="bKu-go-h11" id="onl-Mt-E0N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rgE-at-8QE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-803" y="-151"/>
+        </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PhishNewsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhishNewsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="PhishSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhishSearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clickedOK:"/>
-                <relationship kind="outlet" name="confirmButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="PhishViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhishViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="newsTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="searchButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
