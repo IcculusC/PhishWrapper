@@ -43,8 +43,10 @@
         //for(NSString * str in [dict allKeys])
             //NSLog(str);
         
-        if([dict objectForKey:@"title"])
+        if([dict objectForKey:@"title"] != [NSNull null])
             [newsList addObject:[dict objectForKey:@"title"]];
+        else
+            [newsList addObject:[[NSString alloc] initWithFormat:@"Untitled %@", [dict objectForKey:@"pubdate"]]];
     }
     
     [_newsTableView reloadData];

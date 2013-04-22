@@ -150,13 +150,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WM3-09-dlN" firstAttribute="leading" secondItem="ODK-ad-FqF" secondAttribute="leading" type="default" id="AGw-KA-0tZ"/>
                             <constraint firstItem="WM3-09-dlN" firstAttribute="top" secondItem="ODK-ad-FqF" secondAttribute="top" type="default" id="IgV-ue-peo"/>
-                            <constraint firstItem="WM3-09-dlN" firstAttribute="trailing" secondItem="ODK-ad-FqF" secondAttribute="trailing" type="default" id="KXN-8w-cI7"/>
+                            <constraint firstItem="WM3-09-dlN" firstAttribute="trailing" secondItem="ODK-ad-FqF" secondAttribute="trailing" type="default" id="kdK-3L-XRS"/>
+                            <constraint firstItem="WM3-09-dlN" firstAttribute="leading" secondItem="ODK-ad-FqF" secondAttribute="leading" type="default" id="mdQ-SW-mJK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="5ak-Wt-def">
-                        <barButtonItem key="rightBarButtonItem" title="Ok" id="3L7-R2-XRP"/>
+                        <barButtonItem key="rightBarButtonItem" title="Ok" id="3L7-R2-XRP">
+                            <connections>
+                                <action selector="clickedOK:" destination="Bg2-7q-ETD" id="qL9-mg-M5I"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="WM3-09-dlN" id="8Hd-y4-wxh"/>
@@ -180,7 +184,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="PhishSearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhishSearchViewController.h"/>
             <relationships>
-                <relationship kind="action" name="confirmButton:"/>
+                <relationship kind="action" name="clickedOK:"/>
                 <relationship kind="outlet" name="confirmButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>

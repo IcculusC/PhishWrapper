@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhishAPIDelegate.h"
+#import "PhishAPI.h"
 
-@interface PhishSearchViewController : UIViewController
+@interface PhishSearchViewController : UIViewController <PhishAPIDelegate>
+{
+    PhishAPI * localAPI;
+    NSMutableArray * resultsList;
+    NSArray * json;
+}
+
+- (IBAction)clickedOK:(id)sender;
 
 @end
