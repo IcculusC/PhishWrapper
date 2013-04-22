@@ -46,7 +46,14 @@
         if([dict objectForKey:@"title"] != [NSNull null])
             [newsList addObject:[dict objectForKey:@"title"]];
         else
-            [newsList addObject:[[NSString alloc] initWithFormat:@"Untitled %@", [dict objectForKey:@"pubdate"]]];
+        {
+            NSString *myString = [dict objectForKey:@"pubdate"];
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+            NSDate *yourDate = [dateFormatter dateFromString:myString];
+            dateFormatter.dateFormat = @"MMM dd yyyy";
+            [newsList addObject:[[NSString alloc] initWithFormat:@"Untitled %@", [dateFormatter stringFromDate:yourDate]]];
+        }
     }
     
     [_newsTableView reloadData];
