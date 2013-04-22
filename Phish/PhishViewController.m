@@ -16,8 +16,6 @@
 
 @implementation PhishViewController
 
-//@synthesize newsList;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,7 +33,7 @@
 {
     NSLog(@"SUCCESS");
     NSError *e = nil;
-    NSArray * json = [NSJSONSerialization JSONObjectWithData:dat options: NSJSONReadingMutableContainers error:&e];
+    json = [NSJSONSerialization JSONObjectWithData:dat options: NSJSONReadingMutableContainers error:&e];
     
     for(int i=0;i<[json count];i++)
     {
@@ -43,8 +41,6 @@
         
         for(NSString * str in [dict allKeys])
             NSLog(str);
-        
-        
         
         if([dict objectForKey:@"title"])
             [newsList addObject:[dict objectForKey:@"title"]];
@@ -81,7 +77,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:listIdent];
     }
     
-    //[[cell textLabel] setText:[listText objectAtIndexedSubscript:indexPath.row]];
     NSString * item = [newsList objectAtIndex:indexPath.row];
     if (item == [NSNull null]) {
         item = @"Untitled News Entry";
@@ -97,8 +92,14 @@
     
     PhishNewsViewController * target = [segue destinationViewController];
     
-    target.content = @"TEST";
-        
+    NSMutableDictionary * targetDict = [json objectAtIndex:indexPath.row];
+    
+    NSString * tit = [targetDict objectForKey:@"title"];
+    NSString * con = [targetDict objectForKey:@"txt"];
+    NSString * dat = [targetDict objectForKey:@"pubdate"];
+    
+    target.content = [[NSString alloc] initWithFormat:@"%@ %@ %@", tit, con, dat];
+    
     NSLog(@"SEGUE!");
 }
 

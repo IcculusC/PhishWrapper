@@ -13,8 +13,7 @@
 {
     PhishAPI * localAPI;
     NSMutableArray * newsList;
+    NSArray * json;
 }
-
-//@property (nonatomic, weak) NSMutableArray * newsList;
 
 @end
