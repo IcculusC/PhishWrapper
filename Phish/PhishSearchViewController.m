@@ -11,7 +11,7 @@
 
 @interface PhishSearchViewController ()
 @property (strong, nonatomic) IBOutlet UIBarButtonItem * confirmButton;
-@property (strong, nonatomic) IBOutlet UITableView * tableView;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIDatePicker * datePicker;
 
 @end
@@ -81,6 +81,22 @@
         localAPI = [[PhishAPI alloc] initWithMethod:method keyed:YES sender:self];
         [localAPI fetchData];
     }
+    else if([json isKindOfClass:[NSMutableArray class]])
+    {
+        resultsList = [[NSMutableArray alloc] init];
+        for(int i=0;i<[json count];i++)
+        {
+            NSMutableDictionary * dict = [json objectAtIndex:i];
+            
+            //for(NSString * str in [dict allKeys])
+            //NSLog(str);
+            
+            if([dict objectForKey:@"nicedate"] != [NSNull null])
+                [resultsList addObject:[dict objectForKey:@"nicedate"]];
+        }
+        [_tableView reloadData];
+        NSLog(@"%@", json);
+    }
 }
 
 - (void)connFailed:(NSError *)err
@@ -103,6 +119,36 @@
         if([dict objectForKey:@"setlistdata"] != [NSNull null])
             target.content = [dict objectForKey:@"setlistdata"];
     }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [resultsList count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString * listIdent = @"listEntry";
+    
+    UITableViewCell * cell = [_tableView dequeueReusableCellWithIdentifier:@"SearchItem"];
+    
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:listIdent];
+    }
+    
+    NSString * item = [resultsList objectAtIndex:indexPath.row];
+    if (item == [NSNull null]) {
+        item = @"Untitled Search Entry";
+    }
+    cell.textLabel.text = item;
+    
+    return cell;
 }
 
 @end
