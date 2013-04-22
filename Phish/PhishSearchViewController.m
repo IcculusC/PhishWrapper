@@ -65,12 +65,11 @@
 - (void)gotData:(NSData *)dat
 {
     NSLog(@"SEARCH SUCCESSFUL");
-    NSLog([[NSString alloc] initWithData:dat encoding:NSNEXTSTEPStringEncoding]);
-
     NSError *e = nil;
     json = [NSJSONSerialization JSONObjectWithData:dat options: NSJSONReadingMutableContainers error:&e];
-    
-    [self performSegueWithIdentifier:@"searchToShow" sender:self];
+
+    if([json isKindOfClass:[NSArray class]])
+        [self performSegueWithIdentifier:@"searchToShow" sender:self];
 }
 
 - (void)connFailed:(NSError *)err
@@ -82,7 +81,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"searchToShow"])
-    {
+    {       
         PhishShowViewController * target = [segue destinationViewController];
         
         NSMutableDictionary * dict = [json objectAtIndex:0];
