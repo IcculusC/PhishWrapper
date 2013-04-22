@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		56343A1A172499F70047604C /* PhishNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56343A19172499F70047604C /* PhishNewsViewController.m */; };
+		5670BE221724F59E00A72EDA /* PhishSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5670BE211724F59E00A72EDA /* PhishSearchViewController.m */; };
 		56A8C41417235DEE0054E735 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56A8C41317235DEE0054E735 /* UIKit.framework */; };
 		56A8C41617235DEE0054E735 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56A8C41517235DEE0054E735 /* Foundation.framework */; };
 		56A8C41817235DEE0054E735 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56A8C41717235DEE0054E735 /* CoreGraphics.framework */; };
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		56343A18172499F70047604C /* PhishNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhishNewsViewController.h; sourceTree = "<group>"; };
 		56343A19172499F70047604C /* PhishNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhishNewsViewController.m; sourceTree = "<group>"; };
+		5670BE201724F59E00A72EDA /* PhishSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhishSearchViewController.h; sourceTree = "<group>"; };
+		5670BE211724F59E00A72EDA /* PhishSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhishSearchViewController.m; sourceTree = "<group>"; };
 		56A8C41017235DEE0054E735 /* Phish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A8C41317235DEE0054E735 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		56A8C41517235DEE0054E735 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -98,6 +101,8 @@
 				56A8C41A17235DEE0054E735 /* Supporting Files */,
 				56343A18172499F70047604C /* PhishNewsViewController.h */,
 				56343A19172499F70047604C /* PhishNewsViewController.m */,
+				5670BE201724F59E00A72EDA /* PhishSearchViewController.h */,
+				5670BE211724F59E00A72EDA /* PhishSearchViewController.m */,
 			);
 			path = Phish;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				56A8C43017235DEE0054E735 /* PhishViewController.m in Sources */,
 				56A8C43917235E070054E735 /* PhishAPI.m in Sources */,
 				56343A1A172499F70047604C /* PhishNewsViewController.m in Sources */,
+				5670BE221724F59E00A72EDA /* PhishSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,8 @@
 #import "PhishNewsViewController.h"
 
 @interface PhishViewController ()
-@property (strong, nonatomic) IBOutlet UITableView *newsTableView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem * searchButton;
+@property (strong, nonatomic) IBOutlet UITableView * newsTableView;
 
 @end
 
@@ -88,17 +89,26 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSIndexPath * indexPath = [self.tableView indexPathForCell:sender];
+    if(sender == _searchButton)
+    {
+        
+        NSLog(@"SEARCHBUTTON");
+    }
+    else
+    {
+        
+        NSIndexPath * indexPath = [self.tableView indexPathForCell:sender];
     
-    PhishNewsViewController * target = [segue destinationViewController];
+        PhishNewsViewController * target = [segue destinationViewController];
     
-    NSMutableDictionary * targetDict = [json objectAtIndex:indexPath.row];
+        NSMutableDictionary * targetDict = [json objectAtIndex:indexPath.row];
     
-    NSString * tit = [targetDict objectForKey:@"title"];
-    NSString * con = [targetDict objectForKey:@"txt"];
-    NSString * dat = [targetDict objectForKey:@"pubdate"];
+        NSString * tit = [targetDict objectForKey:@"title"];
+        NSString * con = [targetDict objectForKey:@"txt"];
+        NSString * dat = [targetDict objectForKey:@"pubdate"];
     
-    target.content = [[NSString alloc] initWithFormat:@"%@ %@ %@", tit, con, dat];
+        target.content = [[NSString alloc] initWithFormat:@"%@ %@ %@", tit, con, dat];
+    }
     
     NSLog(@"SEGUE!");
 }

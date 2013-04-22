@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lW6-oQ-1Hp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lW6-oQ-1Hp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -42,10 +42,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News" id="xnd-Yr-NNA">
-                        <barButtonItem key="rightBarButtonItem" title="Search" id="76H-du-E40"/>
+                        <barButtonItem key="rightBarButtonItem" title="Search" id="76H-du-E40">
+                            <connections>
+                                <segue destination="Bg2-7q-ETD" kind="push" id="M6B-4L-gum"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="newsTableView" destination="WJN-Ab-8DE" id="QTN-t7-z5x"/>
+                        <outlet property="searchButton" destination="76H-du-E40" id="w1y-1i-mdh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZC-vv-cif" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -102,6 +107,66 @@
             </objects>
             <point key="canvasLocation" x="-1207" y="-802"/>
         </scene>
+        <!--Phish Search View Controller - Search-->
+        <scene sceneID="ufu-Ig-ekf">
+            <objects>
+                <viewController id="Bg2-7q-ETD" customClass="PhishSearchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ODK-ad-FqF">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WM3-09-dlN">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" type="user" id="7Xh-Mx-M8e"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="388297607.77490401">
+                                    <!--2013-04-22 04:26:47 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-568040400">
+                                    <!--1983-01-01 11:00:00 +0000-->
+                                </date>
+                                <timeZone key="timeZone" name="America/Los_Angeles">
+                                    <mutableData key="data">
+VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
+y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
+5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
+8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
+AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
+DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
+HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
+KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
+OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
+Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
+VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
+Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
+cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
+f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
+</mutableData>
+                                </timeZone>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WM3-09-dlN" firstAttribute="leading" secondItem="ODK-ad-FqF" secondAttribute="leading" type="default" id="AGw-KA-0tZ"/>
+                            <constraint firstItem="WM3-09-dlN" firstAttribute="top" secondItem="ODK-ad-FqF" secondAttribute="top" type="default" id="IgV-ue-peo"/>
+                            <constraint firstItem="WM3-09-dlN" firstAttribute="trailing" secondItem="ODK-ad-FqF" secondAttribute="trailing" type="default" id="KXN-8w-cI7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search" id="5ak-Wt-def">
+                        <barButtonItem key="rightBarButtonItem" title="Ok" id="3L7-R2-XRP"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="confirmButton" destination="3L7-R2-XRP" id="inZ-WX-ibC"/>
+                        <outlet property="datePicker" destination="WM3-09-dlN" id="8Hd-y4-wxh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dAx-ox-HHA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1207" y="-151"/>
+        </scene>
     </scenes>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
@@ -113,10 +178,20 @@
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
+        <class className="PhishSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhishSearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="confirmButton:"/>
+                <relationship kind="outlet" name="confirmButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="PhishViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhishViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="newsTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="searchButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
     </classes>
