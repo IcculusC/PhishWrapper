@@ -67,9 +67,20 @@
     NSLog(@"SEARCH SUCCESSFUL");
     NSError *e = nil;
     json = [NSJSONSerialization JSONObjectWithData:dat options: NSJSONReadingMutableContainers error:&e];
-
-    if([json isKindOfClass:[NSArray class]])
+    
+    NSString * apikey = @"FFD6ACA2EEF31B9DE38E";
+    
+    if([json isKindOfClass:[NSArray class]] && [json count] == 1)
         [self performSegueWithIdentifier:@"searchToShow" sender:self];
+    else if([json isKindOfClass:[NSMutableDictionary class]])
+    {
+        localAPI = Nil;
+                
+        NSString * method = [[NSString alloc] initWithFormat:@"pnet.shows.query&apikey=%@&year=%d", apikey, [[[NSCalendar currentCalendar] components:(NSYearCalendarUnit) fromDate:[_datePicker date]] year]];
+        
+        localAPI = [[PhishAPI alloc] initWithMethod:method keyed:YES sender:self];
+        [localAPI fetchData];
+    }
 }
 
 - (void)connFailed:(NSError *)err
