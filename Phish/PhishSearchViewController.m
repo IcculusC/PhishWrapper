@@ -151,4 +151,22 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSMutableDictionary * dict = [json objectAtIndex:[indexPath row]];
+    
+    NSString * showid = [dict objectForKey:@"showid"];
+    
+    NSString * apikey = @"FFD6ACA2EEF31B9DE38E";
+    
+    NSString * method = [[NSString alloc] initWithFormat:@"pnet.shows.setlists.get&apikey=%@&showid=%@", apikey, showid];
+    
+    localAPI = [[PhishAPI alloc] initWithMethod:method keyed:YES sender:self];
+    
+    [localAPI fetchData];
+    
+    [_tableView deselectRowAtIndexPath:indexPath animated:YES];
+}	
+
+
 @end
