@@ -17,15 +17,6 @@
 
 @implementation PhishSearchViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];    
@@ -38,18 +29,48 @@
 }
 - (IBAction)clickedOK:(id)sender
 {
-    NSLog(@"OK CLICKED");
+    NSDateComponents * comps = [[NSCalendar currentCalendar] components:(NSYearCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit) fromDate:[_datePicker date]];
+    
+    NSString * prettydate;
+    
+    if([comps day] < 10)
+    {
+        if([comps month] < 10)
+        {
+            prettydate = [[NSString alloc] initWithFormat:@"%d-0%d-0%d", [comps year], [comps month], [comps day]];
+        }
+        else
+        {
+            prettydate = [[NSString alloc] initWithFormat:@"%d-%d-0%d", [comps year], [comps month], [comps day]];
+        }
+    }
+    else
+    {
+        if([comps month] < 10)
+        {
+            prettydate = [[NSString alloc] initWithFormat:@"%d-0%d-%d", [comps year], [comps month], [comps day]];
+        }
+    }
+    
+    NSString * apikey = @"FFD6ACA2EEF31B9DE38E";
+    
+    NSString * method = [[NSString alloc] initWithFormat:@"pnet.shows.setlists.get&apikey=%@&showdate=%@", apikey, prettydate];
+    
+    localAPI = [[PhishAPI alloc] initWithMethod:method keyed:YES sender:self];
+    
+    [localAPI fetchData];
 }
-
 
 - (void)gotData:(NSData *)dat
 {
-    
+    NSLog(@"SEARCH SUCCESSFUL");
+    NSLog([[NSString alloc] initWithData:dat encoding:NSNEXTSTEPStringEncoding]);
 }
 
 - (void)connFailed:(NSError *)err
 {
-    
+    NSLog(@"SEARCH FAILED");
+    NSLog([err description]);
 }
 
 @end
