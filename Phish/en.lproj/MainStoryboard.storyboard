@@ -180,8 +180,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <constraints>
                             <constraint firstItem="6fD-JQ-uvf" firstAttribute="trailing" secondItem="ODK-ad-FqF" secondAttribute="trailing" type="default" id="Bhr-P9-qIf"/>
                             <constraint firstItem="WM3-09-dlN" firstAttribute="top" secondItem="ODK-ad-FqF" secondAttribute="top" type="default" id="IgV-ue-peo"/>
+                            <constraint firstItem="6fD-JQ-uvf" firstAttribute="top" secondItem="ODK-ad-FqF" secondAttribute="top" constant="162" id="KdD-8P-tdL"/>
                             <constraint firstItem="6fD-JQ-uvf" firstAttribute="leading" secondItem="ODK-ad-FqF" secondAttribute="leading" type="default" id="Pks-Hk-1Tf"/>
-                            <constraint firstItem="6fD-JQ-uvf" firstAttribute="top" secondItem="WM3-09-dlN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dGL-Of-QpP"/>
                             <constraint firstItem="WM3-09-dlN" firstAttribute="leading" secondItem="ODK-ad-FqF" secondAttribute="leading" type="default" id="mdQ-SW-mJK"/>
                         </constraints>
                     </view>
@@ -232,6 +232,39 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="-803" y="-151"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PhishNewsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhishNewsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="PhishSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhishSearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickedOK:"/>
+                <relationship kind="outlet" name="confirmButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="PhishShowViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhishShowViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="PhishViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhishViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="newsTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="searchButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
