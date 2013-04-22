@@ -84,7 +84,8 @@
     if (item == [NSNull null]) {
         item = @"Untitled News Entry";
     }
-    cell.textLabel.text = item;
+    NSString * noHTML = [item stringByStrippingHTML];
+    cell.textLabel.text = noHTML;
     
     return cell;
 }
@@ -111,6 +112,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+@end
+
+@implementation NSString (HTMLStringAdditions)
+
+-(NSString *) stringByStrippingHTML {
+    NSRange r;
+    NSString *s = [self copy];
+    while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        s = [s stringByReplacingCharactersInRange:r withString:@""];
+    return s;
 }
 
 @end

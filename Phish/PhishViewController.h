@@ -17,3 +17,7 @@
 }
 
 @end
+
+@interface NSString (HTMLStringAdditions)
+-(NSString *) stringByStrippingHTML;
+@end
