@@ -12,8 +12,9 @@
 @interface PhishViewController : UITableViewController <PhishAPIDelegate>
 {
     PhishAPI * localAPI;
+    NSMutableArray * newsList;
 }
 
-@property (nonatomic, strong) NSMutableArray * newsList;
+//@property (nonatomic, weak) NSMutableArray * newsList;
 
 @end

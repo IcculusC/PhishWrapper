@@ -10,12 +10,13 @@
 #import "PhishNewsViewController.h"
 
 @interface PhishViewController ()
+@property (strong, nonatomic) IBOutlet UITableView *newsTableView;
 
 @end
 
 @implementation PhishViewController
 
-@synthesize newsList;
+//@synthesize newsList;
 
 - (void)viewDidLoad
 {
@@ -24,6 +25,10 @@
     NSLog(@"LOADED");
     localAPI = [[PhishAPI alloc] initWithMethod:@"pnet.news.get" keyed:NO sender:self];
     [localAPI fetchData];
+    
+    newsList = [[NSMutableArray alloc] init];
+    
+    [_newsTableView setDataSource:self];
 }
 
 - (void)gotData:(NSData *)dat;
@@ -31,6 +36,23 @@
     NSLog(@"SUCCESS");
     NSError *e = nil;
     NSArray * json = [NSJSONSerialization JSONObjectWithData:dat options: NSJSONReadingMutableContainers error:&e];
+    
+    for(int i=0;i<[json count];i++)
+    {
+        NSMutableDictionary * dict = [json objectAtIndex:i];
+        
+        for(NSString * str in [dict allKeys])
+            NSLog(str);
+        
+        
+        
+        if([dict objectForKey:@"title"])
+            [newsList addObject:[dict objectForKey:@"title"]];
+    }
+    
+    [_newsTableView reloadData];
+    
+    localAPI = nil;
 }
 
 - (void)connFailed:(NSError *)err;
@@ -45,14 +67,26 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10; //[newsList count];
+    return [newsList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsItem"];
+    static NSString * listIdent = @"listEntry";
+    
+    UITableViewCell * cell = [_newsTableView dequeueReusableCellWithIdentifier:@"NewsItem"];
    
-    cell.textLabel.text = @"TEST";
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:listIdent];
+    }
+    
+    //[[cell textLabel] setText:[listText objectAtIndexedSubscript:indexPath.row]];
+    NSString * item = [newsList objectAtIndex:indexPath.row];
+    if (item == [NSNull null]) {
+        item = @"Untitled News Entry";
+    }
+    cell.textLabel.text = item;
     
     return cell;
 }
