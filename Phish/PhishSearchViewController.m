@@ -84,6 +84,7 @@
     else if([json isKindOfClass:[NSMutableArray class]])
     {
         resultsList = [[NSMutableArray alloc] init];
+        idList = [[NSMutableArray alloc] init];
         for(int i=0;i<[json count];i++)
         {
             NSMutableDictionary * dict = [json objectAtIndex:i];
@@ -93,6 +94,10 @@
             
             if([dict objectForKey:@"nicedate"] != [NSNull null])
                 [resultsList addObject:[dict objectForKey:@"nicedate"]];
+            
+            if ([dict objectForKey:@"showid"] != [NSNull null])
+                [idList addObject:[dict objectForKey:@"showid"]];
+
         }
         [_tableView reloadData];
         NSLog(@"%@", json);
@@ -153,9 +158,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSMutableDictionary * dict = [json objectAtIndex:[indexPath row]];
+    //NSMutableDictionary * dict = [json objectAtIndex:[indexPath row]];
     
-    NSString * showid = [dict objectForKey:@"showid"];
+    //NSString * showid = [dict objectForKey:@"showid"];
+    NSString * showid = [idList objectAtIndex:[indexPath row]];
     
     NSString * apikey = @"FFD6ACA2EEF31B9DE38E";
     

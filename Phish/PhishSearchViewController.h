@@ -14,6 +14,7 @@
 {
     PhishAPI * localAPI;
     NSMutableArray * resultsList;
+    NSMutableArray * idList;
     NSArray * json;
 }
 
