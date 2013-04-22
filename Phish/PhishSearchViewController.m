@@ -67,6 +67,9 @@
     NSLog(@"SEARCH SUCCESSFUL");
     NSLog([[NSString alloc] initWithData:dat encoding:NSNEXTSTEPStringEncoding]);
 
+    NSError *e = nil;
+    json = [NSJSONSerialization JSONObjectWithData:dat options: NSJSONReadingMutableContainers error:&e];
+    
     [self performSegueWithIdentifier:@"searchToShow" sender:self];
 }
 
@@ -82,8 +85,13 @@
     {
         PhishShowViewController * target = [segue destinationViewController];
         
-        target.title = @"HEHETITLE";
-        target.content = @"TEST";
+        NSMutableDictionary * dict = [json objectAtIndex:0];
+        
+        if([dict objectForKey:@"nicedate"] != [NSNull null])
+            target.title = [dict objectForKey:@"nicedate"];
+        
+        if([dict objectForKey:@"setlistdata"] != [NSNull null])
+            target.content = [dict objectForKey:@"setlistdata"];
     }
 }
 
