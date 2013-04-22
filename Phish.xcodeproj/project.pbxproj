@@ -20,7 +20,6 @@
 		56A8C42D17235DEE0054E735 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A8C42B17235DEE0054E735 /* MainStoryboard.storyboard */; };
 		56A8C43017235DEE0054E735 /* PhishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A8C42F17235DEE0054E735 /* PhishViewController.m */; };
 		56A8C43917235E070054E735 /* PhishAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A8C43717235E070054E735 /* PhishAPI.m */; };
-		56E8872717237D8400317633 /* PhishNewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E8872617237D8400317633 /* PhishNewsItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +44,6 @@
 		56A8C43617235E070054E735 /* PhishAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhishAPI.h; sourceTree = "<group>"; };
 		56A8C43717235E070054E735 /* PhishAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhishAPI.m; sourceTree = "<group>"; };
 		56A8C43817235E070054E735 /* PhishAPIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhishAPIDelegate.h; sourceTree = "<group>"; };
-		56E8872517237D8400317633 /* PhishNewsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhishNewsItem.h; sourceTree = "<group>"; };
-		56E8872617237D8400317633 /* PhishNewsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhishNewsItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +115,6 @@
 				56A8C42517235DEE0054E735 /* Default.png */,
 				56A8C42717235DEE0054E735 /* Default@2x.png */,
 				56A8C42917235DEE0054E735 /* Default-568h@2x.png */,
-				56E8872517237D8400317633 /* PhishNewsItem.h */,
-				56E8872617237D8400317633 /* PhishNewsItem.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -195,7 +190,6 @@
 				56A8C42417235DEE0054E735 /* PhishAppDelegate.m in Sources */,
 				56A8C43017235DEE0054E735 /* PhishViewController.m in Sources */,
 				56A8C43917235E070054E735 /* PhishAPI.m in Sources */,
-				56E8872717237D8400317633 /* PhishNewsItem.m in Sources */,
 				56343A1A172499F70047604C /* PhishNewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
