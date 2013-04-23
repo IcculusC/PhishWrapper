@@ -20,7 +20,10 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];    
+    [super viewDidLoad];
+    
+    fromSearchFallback = NO;
+    showedAlert = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,15 +74,31 @@
     NSString * apikey = @"FFD6ACA2EEF31B9DE38E";
     
     if([json isKindOfClass:[NSArray class]] && [json count] == 1)
+    {
         [self performSegueWithIdentifier:@"searchToShow" sender:self];
+        fromSearchFallback = NO;
+    }
     else if([json isKindOfClass:[NSMutableDictionary class]])
     {
+        if (fromSearchFallback)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Shows"
+                                                            message:[[NSString alloc] initWithFormat:@"No shows for the year %d.", [[[NSCalendar currentCalendar] components:(NSYearCalendarUnit) fromDate:[_datePicker date]] year]]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            fromSearchFallback = NO;
+            return;
+        }
         localAPI = Nil;
                 
         NSString * method = [[NSString alloc] initWithFormat:@"pnet.shows.query&apikey=%@&year=%d", apikey, [[[NSCalendar currentCalendar] components:(NSYearCalendarUnit) fromDate:[_datePicker date]] year]];
         
         localAPI = [[PhishAPI alloc] initWithMethod:method keyed:YES sender:self];
         [localAPI fetchData];
+        
+        fromSearchFallback = YES;
     }
     else if([json isKindOfClass:[NSMutableArray class]])
     {
@@ -101,6 +120,7 @@
         }
         [_tableView reloadData];
         NSLog(@"%@", json);
+        fromSearchFallback = NO;
     }
 }
 

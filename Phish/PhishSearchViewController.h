@@ -16,6 +16,8 @@
     NSMutableArray * resultsList;
     NSMutableArray * idList;
     NSArray * json;
+    BOOL fromSearchFallback;
+    BOOL showedAlert;
 }
 
 - (IBAction)clickedOK:(id)sender;
