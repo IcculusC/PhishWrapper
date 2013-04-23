@@ -14,10 +14,10 @@
     NSURLConnection *connection;
     id <PhishAPIDelegate> delegate;
     NSMutableData * json;
-    // NSString * method;
+    NSString * method;
 }
 
-- (id)initWithMethod:(NSString *)method keyed:(BOOL)keyed sender:(id)sender;
+- (id)initWithMethod:(NSString *)method arguments:(NSString *)args keyed:(BOOL)keyed sender:(id)sender;
 
 - (void)fetchData;
 

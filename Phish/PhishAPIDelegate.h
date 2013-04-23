@@ -10,11 +10,11 @@
 
 @protocol PhishAPIDelegate <NSObject>
 
-//@required
-//- (void)gotData:(NSData *)dat method:(NSString *)method;
-
 @required
-- (void)gotData:(NSData *)dat;
+- (void)gotData:(NSData *)dat method:(NSString *)method;
+
+//@required
+//- (void)gotData:(NSData *)dat;
 
 @required
 - (void)connFailed:(NSError *)err;

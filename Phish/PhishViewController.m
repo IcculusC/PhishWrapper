@@ -22,7 +22,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     NSLog(@"LOADED");
-    localAPI = [[PhishAPI alloc] initWithMethod:@"pnet.news.get" keyed:NO sender:self];
+    localAPI = [[PhishAPI alloc] initWithMethod:@"pnet.news.get" arguments:@"" keyed:NO sender:self];
     [localAPI fetchData];
     
     newsList = [[NSMutableArray alloc] init];
@@ -30,7 +30,7 @@
     [_newsTableView setDataSource:self];
 }
 
-- (void)gotData:(NSData *)dat // method:(NSString *)method
+- (void)gotData:(NSData *)dat method:(NSString *)method
 {
     NSLog(@"SUCCESS");
     NSError *e = nil;

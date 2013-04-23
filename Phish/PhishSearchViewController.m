@@ -56,23 +56,20 @@
         }
     }
     
-    NSString * apikey = @"FFD6ACA2EEF31B9DE38E";
+    NSString * method = [[NSString alloc] initWithFormat:@"showdate=%@", prettydate];
     
-    NSString * method = [[NSString alloc] initWithFormat:@"pnet.shows.setlists.get&apikey=%@&showdate=%@", apikey, prettydate];
-    
-    localAPI = [[PhishAPI alloc] initWithMethod:method keyed:YES sender:self];
+    localAPI = [[PhishAPI alloc] initWithMethod:@"pnet.shows.setlists.get" arguments:method keyed:YES sender:self];
     
     [localAPI fetchData];
 }
 
-- (void)gotData:(NSData *)dat //method:(NSString *)method
+- (void)gotData:(NSData *)dat method:(NSString *)method
 {
+    NSLog(method);
     NSLog(@"SEARCH SUCCESSFUL");
     NSError *e = nil;
     json = [NSJSONSerialization JSONObjectWithData:dat options: NSJSONReadingMutableContainers error:&e];
-    
-    NSString * apikey = @"FFD6ACA2EEF31B9DE38E";
-    
+        
     if([json isKindOfClass:[NSArray class]] && [json count] == 1)
     {
         [self performSegueWithIdentifier:@"searchToShow" sender:self];
@@ -93,9 +90,9 @@
         }
         localAPI = Nil;
                 
-        NSString * method = [[NSString alloc] initWithFormat:@"pnet.shows.query&apikey=%@&year=%d", apikey, [[[NSCalendar currentCalendar] components:(NSYearCalendarUnit) fromDate:[_datePicker date]] year]];
+        NSString * method = [[NSString alloc] initWithFormat:@"year=%d", [[[NSCalendar currentCalendar] components:(NSYearCalendarUnit) fromDate:[_datePicker date]] year]];
         
-        localAPI = [[PhishAPI alloc] initWithMethod:method keyed:YES sender:self];
+        localAPI = [[PhishAPI alloc] initWithMethod:@"pnet.shows.query" arguments:method keyed:YES sender:self];
         [localAPI fetchData];
         
         fromSearchFallback = YES;
@@ -182,12 +179,10 @@
     
     //NSString * showid = [dict objectForKey:@"showid"];
     NSString * showid = [idList objectAtIndex:[indexPath row]];
+        
+    NSString * method = [[NSString alloc] initWithFormat:@"showid=%@", showid];
     
-    NSString * apikey = @"FFD6ACA2EEF31B9DE38E";
-    
-    NSString * method = [[NSString alloc] initWithFormat:@"pnet.shows.setlists.get&apikey=%@&showid=%@", apikey, showid];
-    
-    localAPI = [[PhishAPI alloc] initWithMethod:method keyed:YES sender:self];
+    localAPI = [[PhishAPI alloc] initWithMethod:@"pnet.shows.setlists.get" arguments:method keyed:YES sender:self];
     
     [localAPI fetchData];
     
