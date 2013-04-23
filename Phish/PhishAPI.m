@@ -29,6 +29,7 @@
     
     if(self)
     {
+        method = methodName;
         json = [[NSMutableData alloc] init];
         baseURL = @"https://api.phish.net/api.js?method=";
         baseURL = [baseURL stringByAppendingString:methodName];
@@ -37,6 +38,8 @@
             baseURL = [baseURL stringByAppendingString:[[NSString alloc] initWithFormat:@"&apikey=%@&", apikey]];
         else
             baseURL = [baseURL stringByAppendingString:@"&"];
+        
+        baseURL = [baseURL stringByAppendingString:args];
         
         NSLog(@"%@", baseURL);
         delegate = sender;
