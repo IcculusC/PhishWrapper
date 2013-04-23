@@ -65,29 +65,26 @@
 
 - (void)gotData:(NSData *)dat method:(NSString *)method
 {
-    NSLog(method);
+    NSLog(@"%@", method);
     NSLog(@"SEARCH SUCCESSFUL");
     NSError *e = nil;
+    NSMutableDictionary *temp = [[NSMutableDictionary alloc]init];
+    BOOL failure = NO;
     json = [NSJSONSerialization JSONObjectWithData:dat options: NSJSONReadingMutableContainers error:&e];
+    
+    if ([json isKindOfClass:[NSMutableDictionary class]]) {
+        temp = json;
+        if ([temp objectForKey:@"success"] != [NSNull null])
+            failure = YES;
+    }
         
-    if([json isKindOfClass:[NSArray class]] && [json count] == 1)
+    if ([method isEqualToString:@"pnet.shows.setlists.get"] && !failure)
     {
         [self performSegueWithIdentifier:@"searchToShow" sender:self];
         fromSearchFallback = NO;
     }
-    else if([json isKindOfClass:[NSMutableDictionary class]])
+    else if ([method isEqualToString:@"pnet.shows.setlists.get"] && failure)
     {
-        if (fromSearchFallback)
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Shows"
-                                                            message:[[NSString alloc] initWithFormat:@"No shows for the year %d.", [[[NSCalendar currentCalendar] components:(NSYearCalendarUnit) fromDate:[_datePicker date]] year]]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-            fromSearchFallback = NO;
-            return;
-        }
         localAPI = Nil;
                 
         NSString * method = [[NSString alloc] initWithFormat:@"year=%d", [[[NSCalendar currentCalendar] components:(NSYearCalendarUnit) fromDate:[_datePicker date]] year]];
@@ -97,16 +94,13 @@
         
         fromSearchFallback = YES;
     }
-    else if([json isKindOfClass:[NSMutableArray class]])
+    else if ([method isEqualToString:@"pnet.shows.query"] && !failure)
     {
         resultsList = [[NSMutableArray alloc] init];
         idList = [[NSMutableArray alloc] init];
         for(int i=0;i<[json count];i++)
         {
             NSMutableDictionary * dict = [json objectAtIndex:i];
-            
-            //for(NSString * str in [dict allKeys])
-            //NSLog(str);
             
             if([dict objectForKey:@"nicedate"] != [NSNull null])
                 [resultsList addObject:[dict objectForKey:@"nicedate"]];
@@ -119,12 +113,23 @@
         NSLog(@"%@", json);
         fromSearchFallback = NO;
     }
+    else if ([method isEqualToString:@"pnet.shows.query"] && failure)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Shows"
+                                                        message:[[NSString alloc] initWithFormat:@"No shows for the year %d.", [[[NSCalendar currentCalendar] components:(NSYearCalendarUnit) fromDate:[_datePicker date]] year]]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        fromSearchFallback = NO;
+        return;
+    }
 }
 
 - (void)connFailed:(NSError *)err
 {
     NSLog(@"SEARCH FAILED");
-    NSLog([err description]);
+    NSLog(@"%@", [err description]);
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -139,7 +144,11 @@
             target.title = [dict objectForKey:@"nicedate"];
         
         if([dict objectForKey:@"setlistdata"] != [NSNull null])
+        {
             target.content = [dict objectForKey:@"setlistdata"];
+            target.content = [target.content stringByAppendingString:@"<BR>"];
+            target.content = [target.content stringByAppendingString:[dict objectForKey:@"setlistnotes"]];
+        }
     }
 }
 
@@ -175,9 +184,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSMutableDictionary * dict = [json objectAtIndex:[indexPath row]];
-    
-    //NSString * showid = [dict objectForKey:@"showid"];
     NSString * showid = [idList objectAtIndex:[indexPath row]];
         
     NSString * method = [[NSString alloc] initWithFormat:@"showid=%@", showid];
