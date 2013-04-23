@@ -30,7 +30,7 @@
     [_newsTableView setDataSource:self];
 }
 
-- (void)gotData:(NSData *)dat;
+- (void)gotData:(NSData *)dat // method:(NSString *)method
 {
     NSLog(@"SUCCESS");
     NSError *e = nil;

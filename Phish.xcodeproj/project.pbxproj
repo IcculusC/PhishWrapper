@@ -101,13 +101,13 @@
 				56A8C42B17235DEE0054E735 /* MainStoryboard.storyboard */,
 				56A8C42E17235DEE0054E735 /* PhishViewController.h */,
 				56A8C42F17235DEE0054E735 /* PhishViewController.m */,
-				56A8C41A17235DEE0054E735 /* Supporting Files */,
 				56343A18172499F70047604C /* PhishNewsViewController.h */,
 				56343A19172499F70047604C /* PhishNewsViewController.m */,
 				5670BE201724F59E00A72EDA /* PhishSearchViewController.h */,
 				5670BE211724F59E00A72EDA /* PhishSearchViewController.m */,
 				56F8950E17251A4500AA4D8B /* PhishShowViewController.h */,
 				56F8950F17251A4500AA4D8B /* PhishShowViewController.m */,
+				56A8C41A17235DEE0054E735 /* Supporting Files */,
 			);
 			path = Phish;
 			sourceTree = "<group>";

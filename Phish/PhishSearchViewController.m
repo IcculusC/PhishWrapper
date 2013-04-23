@@ -65,7 +65,7 @@
     [localAPI fetchData];
 }
 
-- (void)gotData:(NSData *)dat
+- (void)gotData:(NSData *)dat //method:(NSString *)method
 {
     NSLog(@"SEARCH SUCCESSFUL");
     NSError *e = nil;

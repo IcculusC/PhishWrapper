@@ -13,6 +13,13 @@
 @synthesize delegate;
 @synthesize baseURL;
 
+// - (id)initWithMethod:(NSString *)methodName arguments:(NSString *)args keyed:(BOOL)keyed sender:(id)sender;
+//{
+// method = methodName;
+// baseURL = [baseURL stringByAppendingString:methodName];
+// baseURL = [baseURL stringByAppendingString:args];
+//}
+
 - (id)initWithMethod:(NSString *)methodName keyed:(BOOL)keyed sender:(id)sender;
 {
     self = [super init];
@@ -47,6 +54,9 @@
 {
     if(delegate)
         [delegate gotData:json];
+    
+    //  if(delegate)
+    //      [delegate gotData:json method:method];
 }
 
 - (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error
